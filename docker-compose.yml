@@ -1,0 +1,13 @@
+version: '2'
+services:
+  maven:
+    image: maven:3.3.9-jdk-8
+    volumes: 
+      - .:/project
+    working_dir: /project
+    depends_on:
+      - ansible
+    links:
+      - ansible
+  ansible:
+    image: ansible/centos7-ansible:stable
